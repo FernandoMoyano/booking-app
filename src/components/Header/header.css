@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+   font-family: "poppins";
+}
+
+.header {
+   background-color: #33e0a1;
+   color: black;
+   display: flex;
+   justify-content: center;
+   position: relative;
+}
+
+.headerContainer {
+   width: 100%;
+   max-width: 1140px;
+   margin: 20px 0px 100px 0px;
+}
+
+.headerContainer.listMode {
+   margin: 50px 0px 0px 0px;
+}
+
+.headerList {
+   display: flex;
+   gap: 50px;
+}
+
+.headerListItem {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.headerListItem.active {
+   border: 1px solid white;
+   padding: 10px;
+   border-radius: 20px;
+}
+
+.headerDes {
+   margin: 20px 0px
+}
+
+.headerBtn {
+   background-color: #0b4a35;
+   color: white;
+   font-weight: 500;
+   border: none;
+   padding: 10px;
+   cursor: pointer;
+}
+
+.headerSearch {
+   height: 60px;
+   background-color: white;
+   border: 3px solid #0b4a35;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding: 10px 0px;
+   border-radius: 5px;
+   position: absolute;
+   bottom: -30px;
+   width: 100%;
+   max-width: 1140px;
+}
+
+.headerIcon {
+   color: rgb(0, 0, 0);
+}
+
+.headerSearchItem {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+
+}
+
+.headerSearchInput {
+   border: none;
+   outline: none;
+   cursor: pointer;
+
+}
+
+.headerSearchText {
+   color: rgb(181, 178, 178);
+   cursor: pointer;
+}
+
+.date {
+   position: absolute;
+   top: 50px;
+   right: 400px;
+}
+
+.options {
+   position: absolute;
+   top: 50px;
+   background-color: #0b4a35;
+   color: white;
+   border-radius: 5px;
+}
+
+.optionItem {
+   width: 200px;
+   display: flex;
+   justify-content: space-between;
+   margin: 10px;
+}
+
+.optionCounter {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   font-size: 12px;
+}
+
+.optionCounterButton {
+   width: 30px;
+   height: 30px;
+   background-color: rgb(11, 166, 11);
+   color: white;
+   cursor: pointer;
+}
+
+.optionCounterButton:disabled {
+   cursor: not-allowed;
+}
