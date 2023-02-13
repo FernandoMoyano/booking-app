@@ -19,12 +19,13 @@ body {
 }
 
 .headerContainer.listMode {
-   margin: 50px 0px 0px 0px;
+   margin: 20px 0px 0px 0px;
 }
 
 .headerList {
    display: flex;
    gap: 50px;
+   margin-bottom: 50px;
 }
 
 .headerListItem {
@@ -94,6 +95,7 @@ body {
    position: absolute;
    top: 50px;
    right: 400px;
+   z-index: 2;
 }
 
 .options {
@@ -102,6 +104,7 @@ body {
    background-color: #0b4a35;
    color: white;
    border-radius: 5px;
+   z-index: 2;
 }
 
 .optionItem {

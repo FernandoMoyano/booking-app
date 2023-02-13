@@ -1,15 +1,25 @@
-import React from 'react'
-import Header from '../../components/Header/Header'
-import NavBar from '../../components/NavBar/NavBar'
-import "./home.css"
+import React from "react";
+import Featured from "../../components/Featured/Featured";
+import FeaturedProperties from "../../components/FeaturedProperties/FeaturedProperties";
+import Header from "../../components/Header/Header";
+import NavBar from "../../components/NavBar/NavBar";
+import PropertyList from "../../components/PropertyList/PropertyList";
+import "./home.css";
 
 const Home = () => {
-  return (
-    <div>
-      <NavBar/>
-      <Header/>
-    </div>
-  )
-}
+	return (
+		<div>
+			<NavBar />
+			<Header />
+			<div className="homeContainer">
+				<Featured />
+				<h1 className="homeTitle">Browse by property type</h1>
+				<PropertyList />
+				<h1 className="homeTitle">Homes guests love</h1>
+				<FeaturedProperties />
+			</div>
+		</div>
+	);
+};
 
-export default Home
+export default Home;
