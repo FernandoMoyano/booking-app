@@ -1,6 +1,11 @@
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+	faCircleArrowLeft,
+	faCircleArrowRight,
+	faCircleXmark,
+	faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import NavBar from "../../components/NavBar/NavBar";
 import MailList from "../../components/MailList/MailList";
@@ -8,6 +13,29 @@ import Footer from "../../components/Footer/Footer";
 import "./hotel.css";
 
 const Hotel = () => {
+	const [slideNumber, setSlideNumber] = useState(0);
+	const [open, setOpen] = useState(false);
+
+
+
+	/* Open slide */
+	const handleOpen = (i) => {
+		setSlideNumber(i);
+		setOpen(true);
+	};
+
+
+/* Control the movement of the slide */
+	const handleMove = (direction) => {
+		let newSlideNumber;
+		if (direction === "l") {
+			newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
+		} else {
+			newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
+		}
+		setSlideNumber(newSlideNumber);
+	};
+
 	const photosHotel = [
 		{
 			src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/399728690.jpg?k=c2bf8ada5dfbcdcf78dc83c26912f0586c280cc1b31c2856d714f3d268f9c69a&o=&hp=1",
@@ -27,15 +55,41 @@ const Hotel = () => {
 		{
 			src: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/399728690.jpg?k=c2bf8ada5dfbcdcf78dc83c26912f0586c280cc1b31c2856d714f3d268f9c69a&o=&hp=1",
 		},
-		
 	];
+
+	
 	return (
 		<div>
 			<NavBar />
 			<Header type="list" />
 			<div className="hotelContainer">
+				{open && (
+					<div className="slider">
+						<FontAwesomeIcon
+							icon={faCircleXmark}
+							className="close"
+							onClick={() => setOpen(false)}
+						/>
+						<FontAwesomeIcon
+							icon={faCircleArrowLeft}
+							className="arrow"
+							onClick={() => handleMove("l")}
+						/>
+						<div className="sliderWrapper">
+							<img
+								src={photosHotel[slideNumber].src}
+								className="sliderImg"
+								alt=""></img>
+						</div>
+						<FontAwesomeIcon
+							icon={faCircleArrowRight}
+							className="arrow"
+							onClick={() => handleMove("r")}
+						/>
+					</div>
+				)}
 				<div className="hotelWrapper">
-				<button className="bookNow">Reserve or Book now!</button>
+					<button className="bookNow">Reserve or Book now!</button>
 					<h1 className="hotelTitle">Grand Hotel</h1>
 					<div className="hotelAddress">
 						<FontAwesomeIcon icon={faLocationDot} />
@@ -46,9 +100,10 @@ const Hotel = () => {
 						taxi
 					</span>
 					<div className="hotelImages">
-						{photosHotel.map((photo) => (
+						{photosHotel.map((photo, i) => (
 							<div className="hotelImgWrapper">
 								<img
+									onClick={() => handleOpen(i)}
 									src={photo.src}
 									alt=""
 									className="hotelImg"
@@ -83,8 +138,8 @@ const Hotel = () => {
 						</div>
 					</div>
 				</div>
-				<MailList/>
-				<Footer/>
+				<MailList />
+				<Footer />
 			</div>
 		</div>
 	);
